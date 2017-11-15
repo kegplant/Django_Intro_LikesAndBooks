@@ -9,19 +9,24 @@ def index(request):
     u1=Users.objects.first()
     u2=Users.objects.get(id=2)
     u3=Users.objects.get(id=3)
-
     # Books.objects.create(name='US history',desc='',uploader=u3) 
     # Books.objects.create(name='USSR history',desc='',uploader=u3) 
-
     users=Users.objects.all()
     books=Books.objects.all()
-
     b=[]
     for book in books:
         b.append(book)
-    print b
-
-
+    #users creating books
+    # u1.uploads.add(b[0])
+    # u1.uploads.add(b[2])
+    # u1.likes.add(b[0])
+    # u1.likes.add(b[len(b)-1])
+    # u2.likes.add(b[0])
+    # u2.likes.add(b[2])
+    # books=u2.likes.all()
+    # users=b[0].likers.all()
+    # users=[b[0].uploader]
+    users=b[2].likers.all()
     context={
         'users': users,
         'books': books
